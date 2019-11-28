@@ -9,7 +9,8 @@ import {
   Dimmer,
   Loader,
   Message,
-  Grid
+  Grid,
+  Icon
 } from "semantic-ui-react";
 import BaseLayout from "../BaseLayout";
 import api from "../server/api";
@@ -43,6 +44,10 @@ class UserList extends React.Component {
     }
   }
 
+  goTo(id) {
+    this.props.history.push(`/user/edit/${id}`);
+  }
+
   render() {
     return (
       <BaseLayout>
@@ -69,12 +74,18 @@ class UserList extends React.Component {
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Email</Table.HeaderCell>
+                <Table.HeaderCell></Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
               {this.state.list.map(l => (
                 <Table.Row key={l._id}>
                   <Table.Cell>{l.email}</Table.Cell>
+                  <Table.Cell>
+                    <a href="#" onClick={() => this.goTo(l._id)}>
+                      <Icon name="edit"></Icon>
+                    </a>
+                  </Table.Cell>
                 </Table.Row>
               ))}
             </Table.Body>

@@ -56,6 +56,7 @@ const Main = () => (
       <GeneralRoute exact path="/" component={Home} />
       <GeneralRoute exact path="/user" component={UserList} />
       <GeneralRoute exact path="/user/new" component={UserNew} />
+      <GeneralRoute exact path="/user/edit/:id" component={UserNew} />
 
       <GeneralRoute exact path="/spotify" component={SpotifyAuth} />
       <GeneralRoute
