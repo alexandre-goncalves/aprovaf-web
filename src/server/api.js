@@ -1,7 +1,7 @@
 import * as axios from "axios";
 
 class Api {
-  url = "http://localhost:4000";
+  url = process.env.REACT_APP_API_URL;
   key = "aprovafy-user";
 
   async post(path, data) {
